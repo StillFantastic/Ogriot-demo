@@ -12,7 +12,7 @@
     <title>Ogriot</title>
 
     <!-- Custom fonts for this template-->
-	<link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -59,13 +59,13 @@
 
 
             <!-- Nav Item - Charts -->
-		        {% for i in range(box|length) %}
-				      <li class="nav-item" id="item-{{ i }}" onclick="show(this)">
+            {% for i in range(box|length) %}
+              <li class="nav-item" id="item-{{ i }}" onclick="show(this)">
                 <a class="nav-link" href="#">
                   <i class="fas fa-fw fa-chart-area"></i>
-				      		<span >{{ time_box[i] }}-{{ box[i] }}</span></a>
-   	          </li>
-			      {% endfor %}
+                  <span >{{ time_box[i] }}-{{ box[i] }}</span></a>
+               </li>
+            {% endfor %}
 
 
 
@@ -138,7 +138,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Bill Hsu</span>
-								<img class="img-profile rounded-circle" src="{{ url_for('static', filename='image/sister.jpg') }}">
+                <img class="img-profile rounded-circle" src="{{ url_for('static', filename='image/sister.jpg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -248,12 +248,12 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-								                {% for i in range(box|length) %}
-								                	<div class="card-body" id="card-body-img-{{ i }}" style="display: none; text-align: center;">
-								                		{% set img = 'image/demo_' ~ i %}
-								                		<img id="pic" src="{{ url_for('static', filename=img) }}" style="max-width: 100%; height=auto;">
+                                {% for i in range(box|length) %}
+                                  <div class="card-body" id="card-body-img-{{ i }}" style="display: none; text-align: center;">
+                                    {% set img = 'image/demo_' ~ i %}
+                                    <img id="pic" src="{{ url_for('static', filename=img) }}" style="max-width: 100%; height=auto;">
                                   </div>
-								                {% endfor %}
+                                {% endfor %}
                             </div>
                         </div>
 
@@ -273,22 +273,22 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-								                {% for i in range(box|length) %}
-								                	<div class="card-body" id="card-body-{{ i }}" style="display: none">
+                                {% for i in range(box|length) %}
+                                  <div class="card-body" id="card-body-{{ i }}" style="display: none">
                                     <ul>
                                     <br>
-								                		<li id="name">名稱：{{ box[i] }}</li>
+                                    <li id="name">名稱：{{ box[i] }}</li>
                                     <br>
-								                		<li id="count">數量：1</li>
+                                    <li id="count">數量：1</li>
                                     <br>
-								                		<li id="temperature">溫度：{{ temperature[i] }}</li>
+                                    <li id="temperature">溫度：{{ temperature[i] }}</li>
                                     <br>
-								                		<li id="humidity">濕度：{{ wet[i] }}</li>
+                                    <li id="humidity">濕度：{{ wet[i] }}</li>
                                     <br>
-								                		<li id="mature">成熟度：{{ maturity[i] }}</li>
+                                    <li id="mature">成熟度：{{ maturity[i] }}</li>
                                     </ul>
-                                 	</div>
-								                {% endfor %}
+                                   </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -359,22 +359,22 @@
     <script src="{{ url_for('static', filename='js/demo/chart-pie-demo.js') }}"></script>
     <!--change js-->
     <script src="{{ url_for('static', filename='js/change.js') }}"></script>
-	  <script type="text/javascript">
-	  	function show(obj) {
-	  		var id = obj.id;
-	  		id = id.substr(5);
+    <script type="text/javascript">
+      function show(obj) {
+        var id = obj.id;
+        id = id.substr(5);
 
-	  		{% for i in range(box|length) %}
-	  			$("#card-body-{{ i }}").hide();
-	  			$("#card-body-img-{{ i }}").hide();
-	  		{% endfor %}
+        {% for i in range(box|length) %}
+          $("#card-body-{{ i }}").hide();
+          $("#card-body-img-{{ i }}").hide();
+        {% endfor %}
 
-	  		var target = "#card-body-" + id;
-	  		$(target).show();
-	  		target = "#card-body-img-" + id;
-	  		$(target).show();
-	  	}
-	  </script>
+        var target = "#card-body-" + id;
+        $(target).show();
+        target = "#card-body-img-" + id;
+        $(target).show();
+      }
+    </script>
 
 </body>
 
