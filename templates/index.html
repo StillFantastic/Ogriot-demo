@@ -31,7 +31,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-				<img src="{{ url_for('static', filename='image/logo_lg.jpg') }}" width="200" height="80">
+                  <img src="{{ url_for('static', filename='image/logo_lg.jpg') }}" width="200" height="80">
                 </div>
             </a>
 
@@ -54,24 +54,18 @@
             </div>
 
 
-
-
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
 
-
-
-
             <!-- Nav Item - Charts -->
-		    {% for i in range(box|length) %}
-				<li class="nav-item" id="item-{{ i }}" onclick="show(this)">
-            	    <a class="nav-link" href="#">
-            	        <i class="fas fa-fw fa-chart-area"></i>
-						<span >{{ time_box[i] }}-{{ box[i] }}</span></a>
-   	         	</li>
-			{% endfor %}
+		        {% for i in range(box|length) %}
+				      <li class="nav-item" id="item-{{ i }}" onclick="show(this)">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-fw fa-chart-area"></i>
+				      		<span >{{ time_box[i] }}-{{ box[i] }}</span></a>
+   	          </li>
+			      {% endfor %}
 
 
 
@@ -134,7 +128,6 @@
                                 </form>
                             </div>
                         </li>
-
 
 
 
@@ -255,12 +248,12 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-								{% for i in range(box|length) %}
-									<div class="card-body" id="card-body-img-{{ i }}" style="display: none; text-align: center;">
-										{% set img = 'image/demo_' ~ i %}
-										<img id="pic" src="{{ url_for('static', filename=img) }}" style="max-width: 100%; height=auto;">
-                                	</div>
-								{% endfor %}
+								                {% for i in range(box|length) %}
+								                	<div class="card-body" id="card-body-img-{{ i }}" style="display: none; text-align: center;">
+								                		{% set img = 'image/demo_' ~ i %}
+								                		<img id="pic" src="{{ url_for('static', filename=img) }}" style="max-width: 100%; height=auto;">
+                                  </div>
+								                {% endfor %}
                             </div>
                         </div>
 
@@ -280,23 +273,22 @@
                                     </div>
                                 </div>
                                 <!-- Card Body -->
-								{% for i in range(box|length) %}
-									<div class="card-body" id="card-body-{{ i }}" style="display: none">
-                                	    <ul>
-                                	        <br>
-											<li id="name">名稱：{{ box[i] }}</li>
-                                	        <br>
-											<li id="count">數量：1</li>
-                                	        <br>
-											<li id="temperature">溫度：{{ temperature[i] }}</li>
-                                	        <br>
-											<li id="humidity">濕度：{{ wet[i] }}</li>
-                                	        <br>
-											<li id="mature">成熟度：{{ maturity[i] }}</li>
-                                	    </ul>
-
-                                	</div>
-								{% endfor %}
+								                {% for i in range(box|length) %}
+								                	<div class="card-body" id="card-body-{{ i }}" style="display: none">
+                                    <ul>
+                                    <br>
+								                		<li id="name">名稱：{{ box[i] }}</li>
+                                    <br>
+								                		<li id="count">數量：1</li>
+                                    <br>
+								                		<li id="temperature">溫度：{{ temperature[i] }}</li>
+                                    <br>
+								                		<li id="humidity">濕度：{{ wet[i] }}</li>
+                                    <br>
+								                		<li id="mature">成熟度：{{ maturity[i] }}</li>
+                                    </ul>
+                                 	</div>
+								                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -367,22 +359,22 @@
     <script src="{{ url_for('static', filename='js/demo/chart-pie-demo.js') }}"></script>
     <!--change js-->
     <script src="{{ url_for('static', filename='js/change.js') }}"></script>
-	<script type="text/javascript">
-		function show(obj) {
-			var id = obj.id;
-			id = id.substr(5);
+	  <script type="text/javascript">
+	  	function show(obj) {
+	  		var id = obj.id;
+	  		id = id.substr(5);
 
-			{% for i in range(box|length) %}
-				$("#card-body-{{ i }}").hide();
-				$("#card-body-img-{{ i }}").hide();
-			{% endfor %}
+	  		{% for i in range(box|length) %}
+	  			$("#card-body-{{ i }}").hide();
+	  			$("#card-body-img-{{ i }}").hide();
+	  		{% endfor %}
 
-			var target = "#card-body-" + id;
-			$(target).show();
-			target = "#card-body-img-" + id;
-			$(target).show();
-		}
-	</script>
+	  		var target = "#card-body-" + id;
+	  		$(target).show();
+	  		target = "#card-body-img-" + id;
+	  		$(target).show();
+	  	}
+	  </script>
 
 </body>
 
